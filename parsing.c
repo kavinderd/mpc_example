@@ -193,10 +193,10 @@ int main(int argc, char** argv) {
 	mpca_lang(MPCA_LANG_DEFAULT,
 			"      \
 			number : /-?[0-9]+/; \
-			symbol : '+' | '-' | '*' | '/' | '%'	; \
+			symbol: '+' | '-' | '*' | '/'; \
 			sexpr : '('<expr>*')';   \
-			expr : <number> | '(' <operator> <expr>+ ')' ; \
-			lispy : /^/ <operator> <expr>+ /$/ ; \
+			expr : <number> | <symbol> | <sexpr> ; \
+			lispy : /^/ <expr>* /$/ ; \
 			",
 			Number, Symbol,Sexpr, Expr, Lispy);
 	 
